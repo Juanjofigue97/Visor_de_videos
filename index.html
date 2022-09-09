@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://firebase.google.com/docs/web/setup#available-libraries"></script>
     <title>Videos</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
     <div class="container">
         <div class="main-video">
             <div id="prueba" class="video">
-                <video controls autoplay src="./Videos/5_Uso del correo.mp4" type="video/mp4" poster="./Posters/5.png"></video>
+                <video controls autoplay muted src="./Videos/5_Uso del correo.mp4" type="video/mp4" poster="./Posters/5.png"></video>
                 <h3 class="title">Uso correo Corporativo</h3>
             </div>
         </div>
@@ -58,6 +59,45 @@
             </div>
         </div>
     </div>
+    <div class="views">
+        <h1>Website visit count:<span class="website-counter"></span></h1>
+        <button id="reset">Reset</button>
+    </div>
+
+    <div class="container2">
+        <h1>Real View Counter</h1>
+        <div class="view_count_container">
+            <p class="view_count_text"></p>
+        </div>
+    </div>
+
+
+
+
+
     <script src="index.js"></script>
+    <script async src="https://api.countapi.xyz/hit/default/f8178dec-ec58-4b14-a53c-3d8567a3fc64?callback=websiteVisits"></script>
+    
+    <!-- View Real time -->
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCWe-xCglZVL9pMflMYsgu_l2YeANTBX_A",
+          authDomain: "counterview-57785.firebaseapp.com",
+          projectId: "counterview-57785",
+          storageBucket: "counterview-57785.appspot.com",
+          messagingSenderId: "98763626262",
+          appId: "1:98763626262:web:ed236d40e91b4e19aae237"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
 </body>
 </html>

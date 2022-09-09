@@ -1,3 +1,7 @@
+:root{
+    --main-color : ;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -38,7 +42,8 @@ header{
     justify-content: center;
 }
 .container .main-video video{
-    width: 800px;
+    /* width: 800px; */
+    max-width: 100%;
     border-radius: 5px;
 
 }
@@ -105,3 +110,8 @@ header{
     font-size: 17px;
 }
 
+/* Views */
+
+.views{
+    padding-left: 100px;
+}
