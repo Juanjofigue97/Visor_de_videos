@@ -13,6 +13,8 @@ listVideo.forEach(video => {
             let text = video.children[1].innerHTML;
             title.innerHTML =text;
             console.log(text,src,type);
+            let iconPause = 'fa fa-solid fa-pause';
+            icon.className = iconPause;
         }
     }
 });
@@ -77,13 +79,13 @@ function togglePlayPause(){
     if(video.paused){
         btn.className = 'pause';
         video.play();
-        let iconStar= 'fa fa-solid fa-play';
-        icon.className = iconStar;
+        let iconPause = 'fa fa-solid fa-pause';
+        icon.className = iconPause;
     }
     else
     {
-        let iconPause = 'fa fa-solid fa-pause';
-        icon.className = iconPause;
+        let iconStar= 'fa fa-solid fa-play';
+        icon.className = iconStar;
         btn.className = 'play'
         video.pause();
     }
@@ -94,9 +96,16 @@ btn.onclick = function(){
     togglePlayPause();
 }
 
-
 // Menu principal
 
+video.addEventListener('timeupdate', function(){
+    var juicePos = video.currentTime / video.duration;
+    juice.style.width = juicePos * 100 + "%";
+    if (video.ended){
+        let iconStar= 'fa fa-solid fa-play';
+        icon.className = iconStar;
+    }
+})
 
 
 
