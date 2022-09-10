@@ -70,6 +70,12 @@ function count_view(viwers_ip){
     })
 }
 
+
+// Menu principal
+
+
+
+
 // var startDate;
 // function PlayVideo(video) {
 //     console.log(video + " is playing");
