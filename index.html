@@ -5,20 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://firebase.google.com/docs/web/setup#available-libraries"></script>
     <title>Videos</title>
 </head>
-<body>
+<body id ="prin">
     <header>
-        <h1 class="heading"> Pildoras del Conocimiento</h3>
+        <h1 data-text="Pildoras del conocimiento" class="heading">Pildoras del conocimiento</h1>
         <a href="http://192.168.1.117:90/intranet2/"><img src="./Posters/logo_sinsombra2.png" alt="logo"></a>
     </header>
-    <div class="container">
+    <!-- Menu vertical -->
+    <div class="container-menu">
+        <button type="button" onclick="openNav()" class="hamburguer openbtn"> <i class="fa fa-solid fa-bars"></i></button>
+        <a class="active" href="#"><i class="fa fa-home"></i></a> 
+        <a href="#"><i class="fa fa-search"></i></a> 
+        <a href="#"><i class="fa fa-envelope"></i></a> 
+        <a href="#"><i class="fa fa-globe"></i></a>
+        <a href="#"><i class="fa fa-trash"></i></a> 
+    </div>
+    <!--  -->
+    <div id="menu-prin" class="container">
         <div class="main-video">
             <div id="prueba" class="video">
                 <video controls autoplay muted src="./Videos/5_Uso del correo.mp4" type="video/mp4" poster="./Posters/5.png"></video>
                 <h3 class="title">Uso correo Corporativo</h3>
+                <div class="info">
+                    <p>¿Qué es Lorem Ipsum?
+                        Lorem Ipsum es simplemente el texto de relleno de las 
+                        imprentas y archivos de texto. Lorem Ipsum ha sido el 
+                        texto de relleno estándar de las industrias desde el año
+                        1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) 
+                        desconocido usó una galería de textos y los mezcló de tal manera que Lorem 
+                        Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus 
+                        PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+                </div>
             </div>
+
         </div>
         <div class="video-list">
             <div class="vid active">
@@ -58,20 +80,26 @@
                 <h3>Gestión Documental</h3>
             </div>
         </div>
+        <!-- <div class="views">
+            <h1>Website visit count:<span class="website-counter"></span></h1>
+            <button id="reset">Reset</button>
+        </div> -->
+    
+        <!-- <div class="container2">
+            <h1>Real View Counter</h1>
+            <div class="view_count_container">
+                <p class="view_count_text"></p>
+            </div>
+        </div> -->
     </div>
-    <div class="views">
-        <h1>Website visit count:<span class="website-counter"></span></h1>
-        <button id="reset">Reset</button>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a class="active" href="#"><i class="fa fa-home"></i></a> 
+        <a href="#"><i class="fa fa-search"></i></a> 
+        <a href="#"><i class="fa fa-envelope">Opcion 1</i></a> 
+        <a href="#"><i class="fa fa-globe"></i>Opcion 2</a>
+        <a href="#"><i class="fa fa-trash"></i></a> 
     </div>
-
-    <div class="container2">
-        <h1>Real View Counter</h1>
-        <div class="view_count_container">
-            <p class="view_count_text"></p>
-        </div>
-    </div>
-
-
 
 
 
@@ -99,5 +127,19 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
       </script>
+
+    <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("prin").style.marginLeft = "250px";   
+      document.getElementById("menu-prin").style.paddingLeft = "0";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("prin").style.marginLeft = "0";
+      document.getElementById("menu-prin").style.paddingLeft = "70px";
+    }
+    </script>
 </body>
 </html>
