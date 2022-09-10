@@ -286,17 +286,15 @@ button:hover {
   -webkit-font-smoothing: antialiased;
 }
 
-/* .buttons button.play::before{
-
-}
-.buttons button.pause::before{
-  
-} */
-
 .orange-bar {
   height: 10px;
   top: 10px;
   left: 0;
+  width: 100%;
+  background-color: black;
+}
+.orange-juice {
+  height: 10px;
   width: 100%;
   background-color: orangered;
 }
