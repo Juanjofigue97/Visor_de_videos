@@ -17,11 +17,6 @@ listVideo.forEach(video => {
     }
 });
 
-let myvideo = document.getElementById('prueba');
-myvideo.onclick = () =>{
-    console.log("Hola");
-}
-
 function liveViews(response) {
     document.getElementById('visits').innerText = response.value;
 }
@@ -68,6 +63,35 @@ function count_view(viwers_ip){
         views = snapshot.numChildren();
         // document.getElementById("view_count_text").innerHTML = 
     })
+}
+
+// Controls
+
+var video = document.querySelector('#video-principal');
+var juice = document.querySelector('.orange-juice');
+var btn = document.querySelector('#play-pause');
+var icon = document.getElementById('icon')
+
+// fa-solid fa-pause
+function togglePlayPause(){
+    if(video.paused){
+        btn.className = 'pause';
+        video.play();
+        let iconStar= 'fa fa-solid fa-play';
+        icon.className = iconStar;
+    }
+    else
+    {
+        let iconPause = 'fa fa-solid fa-pause';
+        icon.className = iconPause;
+        btn.className = 'play'
+        video.pause();
+    }
+    console.log(icon.getAttribute('class'));
+}
+
+btn.onclick = function(){
+    togglePlayPause();
 }
 
 
