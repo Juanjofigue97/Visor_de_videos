@@ -13,11 +13,38 @@
 
 <body id="prin">
     <header>
-        <h1 data-text="Pildoras del conocimiento" class="heading">Pildoras del conocimiento</h1>
+        <!-- <h1 data-text="Pildoras del conocimiento" class="heading">Pildoras del conocimiento</h1> -->
+        <div class="wrapper">
+            <div class="heading">
+                <span class="char1" data-heading="P">P</span>
+                <span class="char2" data-heading="I">I</span>
+                <span class="char3" data-heading="L">L</span>
+                <span class="char4" data-heading="D">D</span>
+                <span class="char5" data-heading="O">O</span>
+                <span class="char6" data-heading="R">R</span>
+                <span class="char1" data-heading="A">A</span>
+                <span class="char2 espa" data-heading="S">S</span>
+                <span class="char3" data-heading="D">D</span>
+                <span class="char4" data-heading="E">E</span>
+                <span class="char5 espa" data-heading="L">L</span>
+                <span class="char6" data-heading="C">C</span>
+                <span class="char1" data-heading="O">O</span>
+                <span class="char2" data-heading="N">N</span>
+                <span class="char3" data-heading="O">O</span>
+                <span class="char4" data-heading="C">C</span>
+                <span class="char5" data-heading="I">I</span>
+                <span class="char6" data-heading="M">M</span>
+                <span class="char1" data-heading="I">I</span>
+                <span class="char2" data-heading="E">E</span>
+                <span class="char3" data-heading="T">T</span>
+                <span class="char4" data-heading="O">O</span>
+
+            </div>
+        </div>
         <a href="http://192.168.1.117:90/intranet2/"><img src="./Posters/logo_sinsombra2.png" alt="logo"></a>
     </header>
     <!-- Menu vertical -->
-    <div class="container-menu">
+    <nav class="container-menu">
         <button type="button" onclick="openNav()" class="hamburguer openbtn"> <i
                 class="fa fa-solid fa-bars"></i></button>
         <a class="active" href="#"><i class="fa fa-home"></i></a>
@@ -25,14 +52,14 @@
         <a href="#"><i class="fa fa-envelope"></i></a>
         <a href="#"><i class="fa fa-globe"></i></a>
         <a href="#"><i class="fa fa-trash"></i></a>
-    </div>
+    </nav>
     <!--  -->
 
     <div id="menu-prin" class="container">
         <div class="main-video">
             <div class="video">
                 <div class="container-video">
-                    <video id="video-principal" muted autoplay src="./Videos/5_Uso del correo.mp4" type="video/mp4"
+                    <video id="video-principal" autoplay muted src="./Videos/5_Uso del correo.mp4" type="video/mp4"
                         poster="./Posters/5.png"></video>
                     <div class="controls">
                         <div class="orange-bar">
@@ -40,6 +67,9 @@
                         </div>
                         <div class="buttons">
                             <button id="play-pause"><i id="icon" class="fa fa-solid fa-pause"></i></button>
+                            <button id="volumen"><i class="fa fa-volume-up"></i></button>
+                            <input id="volumen-bar" type="range">
+                            <button><i class="fa fa-solid fa-expand"></i></i></button>
                         </div>
                     </div>
                 </div>
@@ -54,8 +84,23 @@
                         Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus
                         PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
                 </div>
+                <!-- Info -->
+                <div class="views">
+                    <h3>Public IP Address of user is:<span id="gfg"></span></h3>
+                    <h1>Website visit count:<span class="website-counter"></span></h1>
+                    <button id="reset">Reset</button>
+                    <div id="status" class="incomplete">
+                        <span>Play status: </span>
+                        <span class="status complete">COMPLETE</span>
+                        <span class="status incomplete">INCOMPLETE</span>
+                        <br />
+                        </div>
+                        <div>
+                        <span id="played">0</span> seconds out of 
+                        <span id="duration"></span> seconds. (only updates when the video pauses)
+                    </div>
+                </div>
             </div>
-
         </div>
         <div class="video-list">
             <div class="vid active">
@@ -103,10 +148,7 @@
                 <h3>Gestión Documental</h3>
             </div>
         </div>
-        <div class="views">
-            <h1>Website visit count:<span class="website-counter"></span></h1>
-            <button id="reset">Reset</button>
-        </div>
+        
 
         <!-- <div class="container2">
             <h1>Real View Counter</h1>
@@ -117,7 +159,7 @@
     </div>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="active" href="#"><i class="fa fa-home"></i></a>
+        <a href="#"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-search"></i></a>
         <a href="#"><i class="fa fa-envelope"></i><span class="menu-emrgente">Opcion 1</span></a>
         <a href="#"><i class="fa fa-globe"></i><span class="menu-emrgente">Opcion 2</span></a>
@@ -126,45 +168,27 @@
 
 
 
-    <script src="index.js"></script>
     <script async
-        src="https://api.countapi.xyz/hit/default/f8178dec-ec58-4b14-a53c-3d8567a3fc64?callback=websiteVisits"></script>
-
+    src="https://api.countapi.xyz/hit/default/f8178dec-ec58-4b14-a53c-3d8567a3fc64?callback=websiteVisits"></script>
+    
     <!-- View Real time -->
-    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCWe-xCglZVL9pMflMYsgu_l2YeANTBX_A",
-            authDomain: "counterview-57785.firebaseapp.com",
-            projectId: "counterview-57785",
-            storageBucket: "counterview-57785.appspot.com",
-            messagingSenderId: "98763626262",
-            appId: "1:98763626262:web:ed236d40e91b4e19aae237"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
-
     <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("prin").style.marginLeft = "250px";
-            document.getElementById("menu-prin").style.paddingLeft = "0";
-        }
+        /* Add "https://api.ipify.org?format=json" statement
+        this will communicate with the ipify servers in
+        order to retrieve the IP address $.getJSON will
+        load JSON-encoded data from the server using a
+        GET HTTP request */
+        $.getJSON("https://api.ipify.org?format=json", function (data) {
+            
+            // Setting text of element P with id gfg
+            $("#gfg").html(data.ip);
+            console.log(data.ip);
+        })
+        </script>
+    <script src="index.js"></script>
 
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("prin").style.marginLeft = "0";
-            document.getElementById("menu-prin").style.paddingLeft = "70px";
-        }
-    </script>
 </body>
 
 </html>
