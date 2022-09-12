@@ -1,51 +1,24 @@
-// CONTROL UBICACION DE VIDEOS 
-let listVideo = document.querySelectorAll('.video-list .vid');
-let mainVideo = document.querySelector('.main-video video')
-let title = document.querySelector('.main-video .title')
+// //CONTADOR DE VISITAS
+// var counterContainer = document.querySelector(".website-counter");
+// var resetButton = document.querySelector("#reset");
+// var visitCount = localStorage.getItem("page_view");
 
-listVideo.forEach(video => {
-    video.onclick = () =>{
-        listVideo.forEach(vid => vid.classList.remove('active'));
-        video.classList.add('active');
-        if(video.classList.contains('active')){
-            let src = video.children[0].getAttribute('src');
-            let type = video.children[0].getAttribute('type');
-            mainVideo.src = src;
-            let text = video.children[1].innerHTML;
-            title.innerHTML =text;
-            console.log(text,src,type);
-            let iconPause = 'fa fa-solid fa-pause';
-            icon.className = iconPause;
-        }
-    }
-});
+// // Check if page_view entry is present
+// if (visitCount) {
+//   visitCount = Number(visitCount) + 1;
+//   localStorage.setItem("page_view", visitCount);
+// } else {
+//   visitCount = 1;
+//   localStorage.setItem("page_view", 1);
+// }
+// counterContainer.innerHTML = visitCount;
 
-function liveViews(response) {
-    document.getElementById('visits').innerText = response.value;
-}
-// FIN DE CONTROL UBICACION DE VIDEOS
-
-//CONTADOR DE VISITAS
-var counterContainer = document.querySelector(".website-counter");
-var resetButton = document.querySelector("#reset");
-var visitCount = localStorage.getItem("page_view");
-
-// Check if page_view entry is present
-if (visitCount) {
-  visitCount = Number(visitCount) + 1;
-  localStorage.setItem("page_view", visitCount);
-} else {
-  visitCount = 1;
-  localStorage.setItem("page_view", 1);
-}
-counterContainer.innerHTML = visitCount;
-
-// Adding onClick event listener
-resetButton.addEventListener("click", () => {
-  visitCount = 1;
-  localStorage.setItem("page_view", 1);
-  counterContainer.innerHTML = visitCount;
-});
+// // Adding onClick event listener
+// resetButton.addEventListener("click", () => {
+//   visitCount = 1;
+//   localStorage.setItem("page_view", 1);
+//   counterContainer.innerHTML = visitCount;
+// });
 
 
 // CONTROLES DE VIDEO
@@ -54,8 +27,20 @@ var video = document.querySelector('#video-principal');
 var juice = document.querySelector('.orange-juice');
 var btn = document.querySelector('#play-pause');
 var icon = document.getElementById('icon');
+var iconS = document.getElementById('iconS');
+var volumen_off = document.getElementById('volumen');
 var volume = document.getElementById('volumen-bar');
+var elem = document.getElementById("expand");
+var time = video.currentTime;
 
+setInterval (()=>{
+  imprimir();
+},1)
+
+document.getElementById("time").innerText = time;
+function imprimir(){
+  console.log("hola")
+}
 
 function togglePlayPause(){
     if(video.paused){
@@ -71,12 +56,34 @@ function togglePlayPause(){
         btn.className = 'play'
         video.pause();
     }
-    console.log(icon.getAttribute('class'));
+    // console.log(icon.getAttribute('class'));
 }
 
 btn.onclick = function(){
-    togglePlayPause();
+  togglePlayPause();
 }
+var auxVolume = 50;
+
+volumen_off.onclick = function(){
+  if(video.volume == 0){
+    video.volume = auxVolume;
+    console.log(video.volume);
+    iconS.className = 'fa fa-volume-up';
+  }else{
+    auxVolume =  video.volume;
+    console.log(video.volume);
+    video.volume = 0; 
+    iconS.className = 'fa fa-volume-off';
+  }
+}
+
+
+function expandirse(){
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  }
+}
+
 
 // Menu principal
 
@@ -87,7 +94,7 @@ video.addEventListener('timeupdate', function(){
         let iconStar= 'fa fa-solid fa-play';
         icon.className = iconStar;
     }
-})
+  })
 
 volume.addEventListener('change', function(e){
     video.volume = e.currentTarget.value /100;
@@ -169,7 +176,7 @@ console.log(ip_Adress)
 
 import("https://api.ipify.org?format=jsonp&callback=getIP");
 function getIP(json) { 
-    console.log((`Your IP Address is ${json.ip}`))
+    console.log((`Your IP Address is ss ${json.ip}`))
     ip_Adress += json.ip;
 }
 
@@ -183,6 +190,15 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
     console.log(data.city);
     console.log(data.country_code);
     // so many more properties
+    usuario1 = {
+      "tiempo": video.currentTime,
+      "VideoName":mainVideo.src,
+      "ip":data.ip,
+    };
+    usuarioJson = JSON.stringify(usuario1);
+    console.log(usuarioJson);
+    console.log(typeof(usuarioJson));
+    console.log(typeof(video.currentTime));
+    localStorage.setItem("ip_Users: ",data.ip);
 });
 
-console.log(video.currentTime)
