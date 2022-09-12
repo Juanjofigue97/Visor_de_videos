@@ -24,7 +24,7 @@
                 <span class="char6" data-heading="R">R</span>
                 <span class="char1" data-heading="A">A</span>
                 <span class="char2 espa" data-heading="S">S</span>
-                <span class="char3" data-heading="D">D</span>
+                <!-- <span class="char3" data-heading="D">D</span>
                 <span class="char4" data-heading="E">E</span>
                 <span class="char5 espa" data-heading="L">L</span>
                 <span class="char6" data-heading="C">C</span>
@@ -37,8 +37,7 @@
                 <span class="char1" data-heading="I">I</span>
                 <span class="char2" data-heading="E">E</span>
                 <span class="char3" data-heading="T">T</span>
-                <span class="char4" data-heading="O">O</span>
-
+                <span class="char4" data-heading="O">O</span> -->
             </div>
         </div>
         <a href="http://192.168.1.117:90/intranet2/"><img src="./Posters/logo_sinsombra2.png" alt="logo"></a>
@@ -59,7 +58,7 @@
         <div class="main-video">
             <div class="video">
                 <div class="container-video">
-                    <video id="video-principal" autoplay muted src="./Videos/5_Uso del correo.mp4" type="video/mp4"
+                    <video id="video-principal"  muted autoplay src="./Videos/5_Uso del correo.mp4" type="video/mp4"
                         poster="./Posters/5.png"></video>
                     <div class="controls">
                         <div class="orange-bar">
@@ -67,9 +66,11 @@
                         </div>
                         <div class="buttons">
                             <button id="play-pause"><i id="icon" class="fa fa-solid fa-pause"></i></button>
-                            <button id="volumen"><i class="fa fa-volume-up"></i></button>
-                            <input id="volumen-bar" type="range">
-                            <button><i class="fa fa-solid fa-expand"></i></i></button>
+                            <button id="volumen"><i id="iconS" class="fa fa-volume-up"></i></button>
+                            <!-- <input id="volumen-bar" type="range"> -->
+                            <input type="range" class="slider" id="volumen-bar">
+                            <button id="expand" onclick="expandirse()"><i  class="fa fa-solid fa-expand"></i></button>
+                            <span id="time"></span>
                         </div>
                     </div>
                 </div>
@@ -78,17 +79,13 @@
                     <p>¿Qué es Lorem Ipsum?
                         Lorem Ipsum es simplemente el texto de relleno de las
                         imprentas y archivos de texto. Lorem Ipsum ha sido el
-                        texto de relleno estándar de las industrias desde el año
-                        1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)
-                        desconocido usó una galería de textos y los mezcló de tal manera que Lorem
-                        Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus
-                        PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+                        texto de relleno estándar de las industrias desde el año</p>
                 </div>
                 <!-- Info -->
                 <div class="views">
-                    <h3>Public IP Address of user is:<span id="gfg"></span></h3>
+                    <!-- <h3>Public IP Address of user is:<span id="gfg"></span></h3>
                     <h1>Website visit count:<span class="website-counter"></span></h1>
-                    <button id="reset">Reset</button>
+                    <button id="reset">Reset</button> -->
                     <div id="status" class="incomplete">
                         <span>Play status: </span>
                         <span class="status complete">COMPLETE</span>
@@ -180,14 +177,20 @@
         order to retrieve the IP address $.getJSON will
         load JSON-encoded data from the server using a
         GET HTTP request */
+        var myjson;
         $.getJSON("https://api.ipify.org?format=json", function (data) {
             
             // Setting text of element P with id gfg
             $("#gfg").html(data.ip);
-            console.log(data.ip);
+            console.log(typeof(data.ip));
+            myjson = data;
         })
+        function processMyJson(data){
+            console.log(data);
+        }
         </script>
     <script src="index.js"></script>
+    <script src="controlsVideo.js"></script>
 
 </body>
 
