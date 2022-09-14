@@ -557,3 +557,13 @@ span.status.incomplete {
   color: white;
   background-color: #0c8e56;
 }
+
+
+.swal-overlay {
+  background-color: rgba(43, 165, 137, 0.45);
+}
+
+.swal-modal {
+  /* background-color: rgba(63,255,106,0.69); */
+  border: 3px solid white;
+}
