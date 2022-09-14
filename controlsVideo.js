@@ -12,12 +12,13 @@ listVideo.forEach(video => {
             let type = video.children[0].getAttribute('type');
             mainVideo.src = src;
             let text = video.children[1].innerHTML;
-            title.innerHTML =text;
+            title.innerHTML = text;
             console.log(text,src,type);
-            let iconPause = 'fa fa-solid fa-pause';
-            icon.className = iconPause;
-            sessionStorage.setItem('title1',src); // Guarda el Video que esta mirando
+            // let iconPause = 'fa fa-solid fa-pause';
+            // icon.className = iconPause;
+            sessionStorage.setItem('title1',text); // Guarda el Video que esta mirando
         }
+        adddGS();
     }
 });
 
