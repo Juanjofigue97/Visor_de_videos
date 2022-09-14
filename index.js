@@ -19,7 +19,8 @@
 //   localStorage.setItem("page_view", 1);
 //   counterContainer.innerHTML = visitCount;
 // });
-
+let textqq = 'Uso del correo' 
+sessionStorage.setItem('title1',textqq);
 
 // CONTROLES DE VIDEO
 
@@ -33,11 +34,11 @@ var volume = document.getElementById('volumen-bar');
 var elem = document.getElementById("expand");
 var time = video.currentTime;
 
-setInterval (()=>{
-  imprimir();
-},1)
+// setInterval (()=>{
+//   imprimir();
+// },1)
 
-document.getElementById("time").innerText = time;
+// document.getElementById("time").innerText = time;
 function imprimir(){
   console.log("hola")
 }
@@ -59,23 +60,23 @@ function togglePlayPause(){
     // console.log(icon.getAttribute('class'));
 }
 
-btn.onclick = function(){
-  togglePlayPause();
-}
-var auxVolume = 50;
+// btn.onclick = function(){
+//   togglePlayPause();
+// }
+// var auxVolume = 50;
 
-volumen_off.onclick = function(){
-  if(video.volume == 0){
-    video.volume = auxVolume;
-    console.log(video.volume);
-    iconS.className = 'fa fa-volume-up';
-  }else{
-    auxVolume =  video.volume;
-    console.log(video.volume);
-    video.volume = 0; 
-    iconS.className = 'fa fa-volume-off';
-  }
-}
+// volumen_off.onclick = function(){
+//   if(video.volume == 0){
+//     video.volume = auxVolume;
+//     console.log(video.volume);
+//     iconS.className = 'fa fa-volume-up';
+//   }else{
+//     auxVolume =  video.volume;
+//     console.log(video.volume);
+//     video.volume = 0; 
+//     iconS.className = 'fa fa-volume-off';
+//   }
+// }
 
 
 function expandirse(){
@@ -87,20 +88,20 @@ function expandirse(){
 
 // Menu principal
 
-video.addEventListener('timeupdate', function(){
-    var juicePos = video.currentTime / video.duration;
-    juice.style.width = juicePos * 100 + "%";
-    if (video.ended){
-        let iconStar= 'fa fa-solid fa-play';
-        icon.className = iconStar;
-    }
-  })
+// video.addEventListener('timeupdate', function(){
+//     var juicePos = video.currentTime / video.duration;
+//     juice.style.width = juicePos * 100 + "%";
+//     if (video.ended){
+//         let iconStar= 'fa fa-solid fa-play';
+//         icon.className = iconStar;
+//     }
+//   })
 
-volume.addEventListener('change', function(e){
-    video.volume = e.currentTarget.value /100;
-    console.log(video.volume,e)
-    console.log(video.currentTime,video.duration);
-})
+// volume.addEventListener('change', function(e){
+//     video.volume = e.currentTarget.value /100;
+//     console.log(video.volume,e)
+//     console.log(video.currentTime,video.duration);
+// })
 
 // vol.onclick = function(){
 //     sounds()
@@ -122,54 +123,54 @@ function closeNav() {
 
 // FIN DE MENU DESPLEGABLE
 
-var timeStarted = -1;
-var timePlayed = 0;
-var duration = 0;
-// If video metadata is laoded get duration
-if(video.readyState > 0)
-  getDuration.call(video);
-//If metadata not loaded, use event to get it
-else
-{
-  video.addEventListener('loadedmetadata', getDuration);
-}
-// remember time user started the video
-function videoStartedPlaying() {
-  timeStarted = new Date().getTime()/1000;
-}
-function videoStoppedPlaying(event) {
-  // Start time less then zero means stop event was fired vidout start event
-  if(timeStarted>0) {
-    var playedFor = new Date().getTime()/1000 - timeStarted;
-    timeStarted = -1;
-    // add the new number of seconds played
-    timePlayed+=playedFor;
-  }
-  document.getElementById("played").innerHTML = Math.round(timePlayed)+"";
-  // Count as complete only if end of video was reached
-  if(timePlayed>=duration && event.type=="ended") {
-    document.getElementById("status").className="complete";
-  }
-}
+// var timeStarted = -1;
+// var timePlayed = 0;
+// var duration = 0;
+// // If video metadata is laoded get duration
+// if(video.readyState > 0)
+//   getDuration.call(video);
+// //If metadata not loaded, use event to get it
+// else
+// {
+//   video.addEventListener('loadedmetadata', getDuration);
+// }
+// // remember time user started the video
+// function videoStartedPlaying() {
+//   timeStarted = new Date().getTime()/1000;
+// }
+// function videoStoppedPlaying(event) {
+//   // Start time less then zero means stop event was fired vidout start event
+//   if(timeStarted>0) {
+//     var playedFor = new Date().getTime()/1000 - timeStarted;
+//     timeStarted = -1;
+//     // add the new number of seconds played
+//     timePlayed+=playedFor;
+//   }
+//   document.getElementById("played").innerHTML = Math.round(timePlayed)+"";
+//   // Count as complete only if end of video was reached
+//   if(timePlayed>=duration && event.type=="ended") {
+//     document.getElementById("status").className="complete";
+//   }
+// }
 
-function getDuration() {
-  duration = video.duration;
-  document.getElementById("duration").appendChild(new Text(Math.round(duration)+""));
-  console.log("Duration: ", duration);
-}
+// function getDuration() {
+//   duration = video.duration;
+//   document.getElementById("duration").appendChild(new Text(Math.round(duration)+""));
+//   console.log("Duration: ", duration);
+// }
 
-video.addEventListener("play", videoStartedPlaying);
-video.addEventListener("playing", videoStartedPlaying);
-video.addEventListener("ended", videoStoppedPlaying);
-video.addEventListener("pause", videoStoppedPlaying);
+// video.addEventListener("play", videoStartedPlaying);
+// video.addEventListener("playing", videoStartedPlaying);
+// video.addEventListener("ended", videoStoppedPlaying);
+// video.addEventListener("pause", videoStoppedPlaying);
 
-let ip = document.getElementById('gfg');
-console.log(ip);
-let a = ip.textContent;
-console.log(a)
-var dict = {"1" : ip};
-var dictstring = JSON.stringify(dict);
-console.log(dictstring);
+// let ip = document.getElementById('gfg');
+// console.log(ip);
+// let a = ip.textContent;
+// console.log(a)
+// var dict = {"1" : ip};
+// var dictstring = JSON.stringify(dict);
+// console.log(dictstring);
 
 let ip_Adress = 'h';
 console.log(ip_Adress)
@@ -199,6 +200,7 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
     console.log(usuarioJson);
     console.log(typeof(usuarioJson));
     console.log(typeof(video.currentTime));
-    localStorage.setItem("ip_Users: ",data.ip);
+    sessionStorage.setItem("ip_Users",data.ip);
+    sessionStorage.setItem('ip_Datos', usuario1);
 });
 
