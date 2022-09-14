@@ -24,6 +24,7 @@ function mostrar(){
         .then(agencia =>{
             localStorage.Agencia = agencia;
             swal("Datos","Nombre del usuatio: " + name + "\nAgencia: " + agencia, "success");
+            adddGS();
         })
     })
 }
