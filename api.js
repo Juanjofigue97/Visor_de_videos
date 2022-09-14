@@ -10,17 +10,40 @@ var segundosNow = today.getMinutes();
 var fecha = `${now} ${horasNow}:${segundosNow}`;
 console.log(fecha);
 
+function mostrar(){
+    swal({
+        text: 'Escribe tu nombre completo: ',
+        content: "input",
+    })
+    .then(name =>{
+        localStorage.Usuario = name;
+        swal({
+            text: `Que agencia de Cofinal perteneces`,
+            content: "input",
+        })
+        .then(agencia =>{
+            localStorage.Agencia = agencia;
+            swal("Datos","Nombre del usuatio: " + name + "\nAgencia: " + agencia, "success");
+        })
+    })
+}
+
 
 document.body.onload = function() {
-    // alert(`la fecha es ${fecha}`);
-    // console.log(fecha);
-    adddGS();
+    console.log(localStorage.Usuario);
+    
+    if(localStorage.Usuario == null){
+        mostrar();
+    }
+    console.log(localStorage.Usuario);
+    // mostrar();
+    adddGS()
 }
 
 function testGS(){
-    
+
     const url = "https://script.google.com/macros/s/AKfycbyP3Xu4-PeAAZebALYT9Do3V4nFC8chxzcw3yBOm6cx9Kw5k_A/exec";
-    
+
     fetch(url)
         .then(d => d.json())
         .then(d => {
@@ -30,9 +53,9 @@ function testGS(){
 }
 
 function adddGS(){
-    
+
     const url = "https://script.google.com/macros/s/AKfycbyP3Xu4-PeAAZebALYT9Do3V4nFC8chxzcw3yBOm6cx9Kw5k_A/exec";
-    
+
     fetch(url,{
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'no-cors', // no-cors, *cors, same-origin
@@ -44,12 +67,12 @@ function adddGS(){
         },
         redirect: 'follow', // manual, *follow, error
         //referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify({IP:sessionStorage.ip_Users,Video:sessionStorage.title1,Fecha:fecha}) // body data type must match "Content-Type" header
+        body: JSON.stringify({IP:localStorage.Usuario,Video:sessionStorage.title1,Fecha:fecha,Agencia:localStorage.Agencia}) // body data type must match "Content-Type" header
     });
 }
 
 
-    
+
 // document.getElementById("volumen").addEventListener("click",adddGS);
 
 // document.getElementById("btn").addEventListener("click",testGS);
