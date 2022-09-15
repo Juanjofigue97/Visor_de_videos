@@ -13,7 +13,7 @@ listVideo.forEach(video => {
             mainVideo.src = src;
             let text = video.children[1].innerHTML;
             title.innerHTML = text;
-            console.log(text,src,type);
+            // console.log(text,src,type);
             // let iconPause = 'fa fa-solid fa-pause';
             // icon.className = iconPause;
             sessionStorage.setItem('title1',text); // Guarda el Video que esta mirando
@@ -26,7 +26,3 @@ function liveViews(response) {
     document.getElementById('visits').innerText = response.value;
 }
 // FIN DE CONTROL UBICACION DE VIDEOS
-let pruebas = mainVideo.scr;
-console.log(`pruebas: ${pruebas}, ${video.getAttribute('src')}`);
-localStorage.setItem('Prueba1',pruebas);
-

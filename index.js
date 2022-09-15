@@ -40,7 +40,7 @@ var time = video.currentTime;
 
 // document.getElementById("time").innerText = time;
 function imprimir(){
-  console.log("hola")
+  // console.log("hola")
 }
 
 function togglePlayPause(){
@@ -172,13 +172,11 @@ function closeNav() {
 // var dictstring = JSON.stringify(dict);
 // console.log(dictstring);
 
-let ip_Adress = 'h';
-console.log(ip_Adress)
 
 import("https://api.ipify.org?format=jsonp&callback=getIP");
 function getIP(json) { 
-    console.log((`Your IP Address is ss ${json.ip}`))
-    ip_Adress += json.ip;
+    // console.log((`Your IP Address is ss ${json.ip}`))
+    // ip_Adress += json.ip;
 }
 
 function json(url) {
@@ -187,9 +185,9 @@ function json(url) {
 
 let apiKey = 'cc49dc0d3bf75fcaa4f502e4f42e3c2b95d504972ad1dcc746128088';
 json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
-    console.log(data.ip);
-    console.log(data.city);
-    console.log(data.country_code);
+    // console.log(data.ip);
+    // console.log(data.city);
+    // console.log(data.country_code);
     // so many more properties
     usuario1 = {
       "tiempo": video.currentTime,
@@ -197,9 +195,9 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
       "ip":data.ip,
     };
     usuarioJson = JSON.stringify(usuario1);
-    console.log(usuarioJson);
-    console.log(typeof(usuarioJson));
-    console.log(typeof(video.currentTime));
+    // console.log(usuarioJson);
+    // console.log(typeof(usuarioJson));
+    // console.log(typeof(video.currentTime));
     sessionStorage.setItem("ip_Users",data.ip);
     sessionStorage.setItem('ip_Datos', usuario1);
 });

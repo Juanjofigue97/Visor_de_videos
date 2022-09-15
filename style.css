@@ -563,7 +563,7 @@ span.status.incomplete {
   background-color: rgba(43, 165, 137, 0.45);
 }
 
-.swal-modal {
-  /* background-color: rgba(63,255,106,0.69); */
-  border: 3px solid white;
+.swal2-popup {
+  font-size: 1.2rem !important;
+  font-family: Georgia, serif;
 }
